@@ -39,6 +39,13 @@ add_action('after_setup_theme', 'university_features');
 //---For events page
 function university_adjust_queries($query)
 {
+  //---For programs
+  if (!is_admin() and is_post_type_archive('program') and is_main_query()) {
+    $query->set('orderby', 'title');
+    $query->set('order', 'ASC');
+    $query->set('posts_per_page', -1);
+  }
+
   //--Only applies for intended URL
   if (!is_admin() and is_post_type_archive('event') and $query->is_main_query()) {
     $today = date('Ymd');
