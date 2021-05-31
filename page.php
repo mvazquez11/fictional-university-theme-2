@@ -3,16 +3,13 @@
 get_header();
 
 while (have_posts()) {
-  the_post(); ?>
-  <div class="page-banner">
-    <div class="page-banner__bg-image" style="background-image: url(<?php echo get_theme_file_uri('/images/ocean.jpg'); ?>);"></div>
-    <div class="page-banner__content container container--narrow">
-      <h1 class="page-banner__title"><?php the_title(); ?></h1>
-      <div class="page-banner__intro">
-        <p>DON'T FORGET TO REPLACE ME LATER</p>
-      </div>
-    </div>
-  </div>
+  the_post();
+  pageBanner(array(
+    'title' => 'Hello there this is the title',
+    'photo' => 'https://image.winudf.com/v2/image/Y29tLm5hdHVyZXdhbGxwYXBlci5rZHhpbWFuX3NjcmVlbl8wXzE1MjQzOTg0OTFfMDA2/screen-0.jpg?fakeurl=1&type=.jpg'
+  ));
+?>
+
 
   <div class="container container--narrow page-section">
 
