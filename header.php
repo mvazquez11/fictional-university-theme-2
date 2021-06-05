@@ -10,6 +10,7 @@
 <body <?php body_class(); ?>>
   <header class="site-header">
     <div class="container">
+		
       <h1 class="school-logo-text float-left">
         <a href="<?php echo site_url(); ?>"><strong>Fictional</strong> University</a>
       </h1>
@@ -23,6 +24,7 @@
           // ));
 
           ?>
+			
           <ul>
             <li <?php if (is_page('about-us') or wp_get_post_parent_id(0) == 24) echo 'class="current-menu-item"' ?>><a href="<?php echo site_url('/about-us'); ?>">About Us</a></li>
             <li <?php if (get_post_type() == 'program') echo 'class="current-menu-item"' ?>><a href="<?php echo get_post_type_archive_link('program'); ?>">Programs</a></li>
