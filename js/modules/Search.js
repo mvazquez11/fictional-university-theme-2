@@ -57,6 +57,7 @@ class Search {
 
   //---Obtain search data
   getResults(){
+    //---.when helps to process all the requests before doing something with the data returned
     $.when(
       $.getJSON(universityData.root_url + '/wp-json/wp/v2/posts?search=' + this.searchField.val()),
       $.getJSON(universityData.root_url + '/wp-json/wp/v2/pages?search=' + this.searchField.val())).then((posts, pages) => {
@@ -64,7 +65,7 @@ class Search {
         this.resultsDiv.html(`
         <h2 class="search-overlay__section-title">General Information</h2>
         ${combinedResults.length ? '<ul class="link-list min-list>' : '<p>No general information matches that search.</p>'  }
-          ${combinedResults.map(item => `<li><a href="${item.link}">${item.title.rendered}</a></li>`).join('')}
+          ${combinedResults.map(item => `<li><a href="${item.link}">${item.title.rendered}</a> ${item.type == 'post' ? `by ${item.author_name}` : ''}</li>`).join('')}
           ${combinedResults.length ? '</ul>' : ''}
         </ul>
       `);
