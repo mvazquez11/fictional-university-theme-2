@@ -131,7 +131,7 @@ class Search {
       this.closeOverlay();
     }
   }
-  //---Open search overlay
+  //---Open search  overlay
   openOverlay(){
     this.searchOverlay.addClass("search-overlay--active");
     //---Remove the ability to scroll
@@ -140,6 +140,8 @@ class Search {
     setTimeout(() => this.searchField.focus() ,301);
     console.log("Our open method just ran");
     this.isOverlayOpen = true;
+    //---Prevent default behaviour of a tag
+    return false;
   }
   //---Close search overlay
   closeOverlay(){
