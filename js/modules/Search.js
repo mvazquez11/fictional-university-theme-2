@@ -122,12 +122,14 @@ class Search {
   //---Identify the key pressed to search and
   keyPressedDispatcher(e){
     //---For 's' key
-    if(e.keyCode == 83 && !this.isOverlayOpen && $("input, textarea").is(':focus')){
+    if(e.keyCode == 83 && document.activeElement.tagName != "INPUT" && document.activeElement.tagName != "TEXTAREA"){
+      e.preventDefault();
       //---Calls open search overlay
       this.openOverlay();
     }
 
     if(e.keyCode == 27 && this.isOverlayOpen){
+      e.preventDefault();
       this.closeOverlay();
     }
   }
